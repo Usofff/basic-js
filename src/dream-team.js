@@ -1,4 +1,4 @@
-'use strikt';
+
 module.exports = function createDreamTeam(members) {
   if(Array.isArray(members)==false)
     {

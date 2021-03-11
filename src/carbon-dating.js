@@ -1,7 +1,8 @@
 const MODERN_ACTIVITY = 15;
 const HALF_LIFE_PERIOD = 5730;
-
+const CustomError = require("../extensions/custom-error");
 module.exports = function dateSample(sampleActivity) {
+  throw new CustomError('Not implemented');
   if (typeof sampleActivity == String) {
 
     let t = Math.log(MODERN_ACTIVITY / +sampleActivity) / 0.693 * HALF_LIFE_PERIOD;

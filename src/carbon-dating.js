@@ -1,12 +1,18 @@
 const MODERN_ACTIVITY = 15;
 const HALF_LIFE_PERIOD = 5730;
-const CustomError = require("../extensions/custom-error");
+
 module.exports = function dateSample(sampleActivity) {
-  if (typeof sampleActivity === String) {
-    let t = Math.log(MODERN_ACTIVITY / +sampleActivity) / 0.693 * HALF_LIFE_PERIOD;
-  return Math.ceil(t);
-  }else{
+  if (!sampleActivity) {
     return false;
   }
-  
+  if (sampleActivity * 1 !== 0) {
+    return false;
+  }
+  if ((sampleActivity > 0) && (sampleActivity <= 50)) {
+    let a = Math.ceil(Math.log(MODERN_ACTIVITY / sampleActivity) * HALF_LIFE_PERIOD / Math.log(2));
+    console.log(a);
+    return a;
+  } else {
+    return false;
+  }
 };
